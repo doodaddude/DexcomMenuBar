@@ -1,63 +1,135 @@
-# DexcomMenuBar
+<div align="center">
 
-A native, lightweight macOS menu bar app for tracking real-time continuous glucose monitor (CGM) readings from Dexcom Share and Dexcom Cloud. Runs silently in the menu bar with zero Dock or app switcher footprint.
+  <img src="https://raw.githubusercontent.com/doodaddude/DexcomMenuBar/main/Resources/AppIcon.png" width="128" height="128" alt="DexcomMenuBar App Icon" style="border-radius: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);" />
 
----
+  # DexcomMenuBar for macOS
 
-## Key Features
+  ### *Real-time continuous glucose monitoring, floating natively in your Mac menu bar.*
 
-- Pure menu bar accessory: Runs directly in your macOS menu bar with no Dock icon and no Command-Tab presence.
-- Real-time glucose readings: Displays live blood glucose values and trend arrows (such as 118 -> or 6.5 mmol/L ->).
-- Multi-user monitoring: Track two separate Dexcom users side by side in the menu bar with customizable display order.
-- Privacy-first status display: User names stay strictly inside the click dropdown card, keeping your menu bar clean and anonymous.
-- Independent per-user preferences: Unmirrored toggles for mini trend graphs, rate-of-change deltas, and droplet colors (low, normal, high).
-- Intelligent color coding: Color-coded status droplets indicating low, normal, and high glucose levels at a glance.
-- Target range sparkline: Popover card renders a 24-hour interactive sparkline chart with customizable target thresholds.
-- Sensor countdown tracker: Built-in lifespan countdown tracker for Dexcom G7, G6, and ONE+ sensors with expiration warnings.
-- Urgent glucose audio alerts: Customizable audio alerts for urgent low and urgent high glucose thresholds.
-- Event logging sheet: Log meals with carbs and macros, insulin doses, physical exercise, and fingerstick meter calibrations.
-- Fast meal presets: Instant one-click presets for common meals and snacks.
-- Medical export tools: One-click export to clean CSV and formatted PDF reports ready for endocrinologist visits.
-- Secure macOS Keychain storage: All Dexcom passwords and developer tokens are stored securely in the native macOS Keychain.
-- Multi-region connectivity: Full support for Dexcom US, Outside US (OUS), and Japan servers.
-- Officially notarized: Signed with an Apple Developer ID and notarized by Apple for instant, warning-free installation on macOS 13+.
+  [![Platform](https://img.shields.io/badge/Platform-macOS%2013%2B-black?style=for-the-badge&logo=apple)](https://github.com/doodaddude/DexcomMenuBar)
+  [![Developer ID Notarized](https://img.shields.io/badge/Apple%20Notarized-Developer%20ID-blue?style=for-the-badge&logo=apple)](https://github.com/doodaddude/DexcomMenuBar/releases)
+  [![Release](https://img.shields.io/github/v/release/doodaddude/DexcomMenuBar?style=for-the-badge&color=success)](https://github.com/doodaddude/DexcomMenuBar/releases/latest)
+  [![License](https://img.shields.io/badge/License-MIT-amber?style=for-the-badge)](LICENSE)
+
+  <p align="center">
+    <b>DexcomMenuBar</b> brings glanceable, real-time blood glucose telemetry directly to your macOS status bar. Built with a bespoke <i>Liquid Glass</i> aesthetic, native SwiftUI graphics, multi-wearer side-by-side tracking, and zero Dock footprint: monitor your sensor values, trend arrows, delta velocities, and insulin/carb logs without interrupting your workflow.
+  </p>
+
+</div>
 
 ---
 
-## Installation
+## 🌟 Key Highlights
 
-### Download Disk Image (.dmg)
-1. Download `DexcomMenuBar-v1.0.0.dmg` from the latest GitHub Release.
-2. Open the downloaded `.dmg` file.
-3. Drag `DexcomMenuBar.app` into your `Applications` folder.
-4. Launch the app from Applications or Spotlight.
+- **💧 Pure Menu Bar Accessory:** Runs strictly as an agent process (`LSUIElement = true`) with zero Dock clutter and zero Command-Tab presence.
+- **⚡️ Real-Time Dexcom Telemetry:** Live glucose values, trend directional arrows (e.g., `118 ↗` or `6.5 mmol/L →`), and rate-of-change deltas refreshed automatically.
+- **👥 Multi-Wearer Side-by-Side:** Track two distinct Dexcom accounts simultaneously with configurable display order and independent settings.
+- **🛡️ Privacy-First Menu Display:** Wearer names remain private inside the click popover card, keeping your public menu bar completely anonymous.
+- **🔏 Apple Notarized & Signed:** Signed with an Apple Developer ID (*Dakota Hilchey*) and stapled by Apple's Notary Service for seamless, warning-free Gatekeeper installation.
 
 ---
 
-## Build from Source
+## ✨ Features & Capabilities
+
+### 1. 🪟 Menu Bar Integration & Liquid Glass Popover
+- **Glanceable Status Item:** Live glucose reading accompanied by a custom color-coded droplet reflecting current category levels (low, normal, high).
+- **Optional Mini Sparkline:** Toggle a compact trend bar chart directly in the menu bar to monitor recent trajectories at a glance.
+- **Rich Liquid Glass Card:** Clicking the menu bar item smoothly reveals a translucent popover card with 24-hour history, detailed statistics, and time-in-range metrics.
+- **Stale Data Detection:** Automatically indicates sensor dropouts or delayed transmissions when readings exceed expected reporting intervals.
+
+### 2. 👥 Multi-User Monitoring (Unmirrored Controls)
+- **Concurrent Dual Polling:** Independently queries multiple Dexcom Share accounts across US, Outside US (OUS), or Japan server regions.
+- **Unmirrored Display Options:** User 1 can enable the mini menu bar sparkline while User 2 keeps a minimalist numeric view.
+- **Custom Droplet Color Palettes:** Assign independent colors for low, normal, and high glucose bands per profile to distinguish wearers instantly.
+- **Profile Display Reordering:** Swap display order in settings with one click to prioritize who appears first in the status bar.
+
+### 3. ⏳ Sensor Lifespan & Countdown Tracker
+- **Model Support:** Integrated tracking for Dexcom G7, G6, and ONE+ sensor models.
+- **Visual Expiration Timer:** Real-time countdown tracking days and hours remaining with warning indicators when a sensor nears end-of-life.
+- **One-Click Sensor Reset:** Convenient restart button to reset timers instantly upon inserting a new sensor.
+
+### 4. 📝 Diabetes Event Logging & Rapid Presets
+- **Comprehensive Logging Sheet:** Record carbs, insulin units (fast/long acting), physical workouts, and fingerstick meter calibrations.
+- **One-Click Meal Favorites:** Instant preset buttons for habitual meals and snacks to make carbohydrate logging instantaneous.
+- **Per-User Button Toggle:** Show or hide the quick event logging button on a per-user basis.
+
+### 5. 📊 Clinical Reports & Data Export
+- **Endocrinologist Ready:** Export structured glucose records and session history to clean CSV and formatted PDF reports with a single click.
+- **Clarity & Cloud Sync Architecture:** Supports modern OAuth2 developer token exchange alongside traditional Dexcom Share credentials.
+
+### 6. 🔒 Security & Native Storage
+- **Native macOS Keychain:** Passwords and tokens are stored directly in `Security.framework` using `kSecClassGenericPassword`. Plain text credentials are never saved to disk.
+- **Offline Simulation Mode:** Built-in telemetry simulator to test alert sounds, thresholds, and graph rendering without active sensor credentials.
+
+---
+
+## 🎨 Menu Bar Appearance
+
+| Element | Description | Example |
+| :--- | :--- | :--- |
+| **Droplet Icon** | Color-coded status droplet matching current metabolic state | 🟢 Normal / 🟠 High / 🔴 Low |
+| **Glucose Value** | Formatted numeric reading in preferred measurement unit | `118` or `6.5` |
+| **Rate-of-Change Delta** | Optional delta change since preceding reading | `(+5)` or `(-0.3)` |
+| **Trend Arrow** | Standard Dexcom directional rate indicator | `↑` `↗` `→` `↘` `↓` `⇈` `⇊` |
+| **Mini Sparkline** | Optional compact bar graph placed to the right of readings | ` ▂▃▅▆▇` |
+| **Multi-User Separator** | Subtle divider pipe separating concurrent profiles | `💧 118 ↗ \| 💧 142 →` |
+
+---
+
+## 🚀 Installation
+
+### Option 1: Apple Notarized DMG (Recommended)
+1. Download **[`DexcomMenuBar-v1.0.0.dmg`](https://github.com/doodaddude/DexcomMenuBar/releases/latest/download/DexcomMenuBar-v1.0.0.dmg)** from the latest release.
+2. Open the disk image.
+3. Drag **DexcomMenuBar.app** into your **Applications** folder.
+4. Launch `DexcomMenuBar` from Applications or Spotlight.
+
+### Option 2: Pre-Packaged ZIP
+1. Download **[`DexcomMenuBar-v1.0.0-macOS.zip`](https://github.com/doodaddude/DexcomMenuBar/releases/latest/download/DexcomMenuBar-v1.0.0-macOS.zip)**.
+2. Unpack the archive:
+   ```bash
+   unzip DexcomMenuBar-v1.0.0-macOS.zip -d /Applications/
+   ```
+3. Open the app from your Applications directory.
+
+---
+
+## 🛠️ Build From Source
 
 ### Requirements
 - macOS 13.0 (Ventura) or newer
-- Xcode Command Line Tools (`swift --version`)
+- Xcode Command Line Tools (`xcode-select --install`)
+- Swift 5.9+ toolchain
 
-### Compilation Steps
+### Build & Package
 ```bash
+# 1. Clone repository
 git clone https://github.com/doodaddude/DexcomMenuBar.git
 cd DexcomMenuBar
 
-# Build and package the .app bundle
+# 2. Compile and package the native .app bundle
 ./bundle.sh
 
-# Launch the app
+# 3. Launch application
 open build/DexcomMenuBar.app
 ```
 
 ---
 
-## Initial Setup
+## ⚙️ Initial Configuration
 
 1. Click the Dexcom droplet icon in your macOS menu bar.
-2. Open Preferences.
-3. Enter your Dexcom Share username and password.
-4. Select your account region (US, Outside US / OUS, or Japan).
-5. Click Save & Sync.
+2. Select **Preferences...** (`⌘,`).
+3. Under **User 1 Settings**, enter your **Dexcom Share Username** and **Password** (the primary wearer account where Dexcom Share is enabled in the mobile app).
+4. Choose your account region:
+   - **US** (United States)
+   - **OUS** (Outside United States / Canada, UK, Europe, etc.)
+   - **Japan**
+5. Select your preferred units (`mg/dL` or `mmol/L`).
+6. Click **Save & Sync** to begin receiving live telemetry.
+
+---
+
+## 📄 License & Attribution
+
+Distributed under the MIT License. Dexcom, Dexcom G6, Dexcom G7, Dexcom ONE, and Dexcom Share are registered trademarks of Dexcom, Inc. This application is an independent community project not affiliated with or endorsed by Dexcom, Inc.
